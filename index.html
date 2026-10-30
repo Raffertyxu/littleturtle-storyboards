@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f6f0e7">
+<meta name="description" content="小烏龜馬卡濃短影音分鏡與劇本，手機快速瀏覽與切換。">
+<title>小烏龜｜馬卡濃短影音分鏡</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="style.css">
+<style>button:focus-visible,select:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--color-focus);outline-offset:3px}</style>
+<script src="data.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner"><a class="wordmark" href="./"><span class="wordmark-name">小烏龜</span><span class="wordmark-note">馬卡濃短影音</span></a><span class="topbar-label">腳本評估版</span></div></header>
+<main class="wrap">
+<section class="intro" aria-labelledby="page-title"><div class="intro-copy"><p class="eyebrow">STORYBOARD COLLECTION　／　12 支提案</p><h1 id="page-title">馬卡濃的<br><span>有趣日常</span></h1><p class="lead">兩支實拍建議，十支短劇構想。選一支腳本，逐鏡看畫面、動作與台詞。</p></div><div class="intro-product"><img src="assets/product-original.jpg" alt="小烏龜原味馬卡濃實拍"><span>小烏龜 · 原味馬卡濃</span></div></section>
+<section class="viewer" aria-labelledby="viewer-title"><div class="viewer-heading"><div><p class="eyebrow">PICK A STORY　／　選擇腳本</p><h2 id="viewer-title">挑一支來看</h2></div><button type="button" class="share-button" id="share">分享這一鏡</button></div>
+<div class="selector-row"><div class="field"><label for="episode-select">腳本</label><select id="episode-select" aria-label="選擇短影音腳本"></select></div><div class="episode-arrows" aria-label="切換腳本"><button type="button" id="prev-episode" aria-label="上一支腳本">←</button><button type="button" id="next-episode" aria-label="下一支腳本">→</button></div></div>
+<div class="story-title" aria-live="polite"><div><span id="episode-number" class="number"></span><span id="episode-kind" class="kind"></span></div><h3 id="episode-title"></h3><p id="episode-meta"></p><p id="episode-why" class="story-reason"></p></div>
+<div class="shot-header"><h4>逐鏡分鏡</h4><span>點選鏡頭切換</span></div><div class="shot-tabs" role="tablist" aria-label="選擇鏡頭" id="shot-tabs"></div>
+<div class="shot-layout"><div class="shot-visual"><div id="still" class="still" role="img"><div id="photo-object" class="photo-obj"><img src="assets/product-original.jpg" alt=""></div><span id="visual-label" class="visual-label"></span></div></div><article class="shot-copy" aria-live="polite"><div class="shot-kicker"><span id="shot-name"></span><span id="shot-time"></span></div><p id="shot-camera" class="camera"></p><div class="copy-block"><h5>演員動作</h5><p id="shot-action"></p></div><div class="copy-block dialogue"><h5>台詞／字幕</h5><p id="shot-line"></p></div><div class="copy-block"><h5>產品與拍攝</h5><p id="shot-prop"></p></div><div class="shot-controls"><button type="button" id="prev-shot">← 上一鏡</button><button type="button" id="next-shot">下一鏡 →</button></div></article></div>
+<details class="production-notes"><summary>拍攝與製作說明</summary><div><p>圖片中的人物為 AI 示意；標示「實品照片合成」的商品取自小烏龜本機實拍照。商品比例為視覺估算，拿取、咬下和開盒請依真實產品拍攝；部分雙人構圖與演員動作仍需調整。</p><p id="mode-notes"></p></div></details>
+<div class="episode-bottom"><button type="button" id="prev-episode-bottom">← 上一支</button><span id="episode-progress"></span><button type="button" id="next-episode-bottom">下一支 →</button></div></section>
+<footer><span>小烏龜 · 馬卡濃短影音提案</span><span>分鏡與台詞供拍攝評估</span></footer></main>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<noscript><p class="noscript">此頁需要啟用 JavaScript 才能切換分鏡。</p></noscript>
+</body></html>
