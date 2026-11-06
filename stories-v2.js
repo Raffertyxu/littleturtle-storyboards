@@ -32,12 +32,12 @@ function picture(el,film,index){const page=Math.floor(index/4)+1,quadrant=index%
 function renderFilm(film){
  $('kind').textContent=film.kind;$('title').textContent=film.title;$('desc').textContent=film.desc;$('setup').textContent=film.setup;$('flow').textContent=film.flow;
  for(const x of films)$('film-'+x.id).setAttribute('aria-pressed',String(x.id===film.id));
- $('allshots').replaceChildren(...film.shots.map((x,n)=>{const d=document.createElement('div');d.className='fullitem';const h=document.createElement('strong');h.textContent=`${n+1}｜${x.time}｜${x.name}`;const p=document.createElement('p');p.textContent=x.action+' 卡點：'+x.beat;d.append(h,p);return d}));
+ $('allshots').replaceChildren(...film.shots.map((x,n)=>{const d=document.createElement('div');d.className='fullitem';const h=document.createElement('strong');h.textContent=`${n+1}｜${x.time}｜${x.name}`;const p=document.createElement('p');p.textContent=x.action+' 卡點：'+x.beat+' 字卡：'+x.card;d.append(h,p);return d}));
  $('grid').replaceChildren(...film.shots.map((x,n)=>{const b=document.createElement('button');b.type='button';b.dataset.index=String(n);b.setAttribute('aria-label',`鏡頭 ${n+1}：${x.name}`);b.textContent=String(n+1);return b}));renderedFilm=film.id;
 }
 function draw(){
  const film=films[f],shot=film.shots[i];if(renderedFilm!==film.id)renderFilm(film);
- $('shotcount').textContent=`鏡頭 ${i+1} / ${film.shots.length}`;$('time').textContent=shot.time;$('name').textContent=shot.name;$('camera').textContent=shot.camera;$('action').textContent=shot.action;$('beat').textContent=shot.beat;$('step').textContent=`${i+1} / ${film.shots.length}`;
+ $('shotcount').textContent=`鏡頭 ${i+1} / ${film.shots.length}`;$('time').textContent=shot.time;$('name').textContent=shot.name;$('camera').textContent=shot.camera;$('action').textContent=shot.action;$('beat').textContent=shot.beat;$('card').textContent=shot.card;$('step').textContent=`${i+1} / ${film.shots.length}`;
  $('prev').disabled=i===0;$('next').textContent=i===15?'切換另一支 →':'下一鏡 →';picture($('picture'),film.id,i);
  $('grid').querySelectorAll('button').forEach((b,n)=>b.setAttribute('aria-current',String(n===i)));
  const u=new URL(location.href);u.searchParams.set('film',film.id);u.searchParams.set('shot',String(i+1));history.replaceState(null,'',u);warm(film.id,i);
