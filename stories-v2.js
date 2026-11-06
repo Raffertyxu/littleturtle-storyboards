@@ -4,7 +4,7 @@ const films=window.FILMS,$=id=>document.getElementById(id),query=new URLSearchPa
 let f=query.get('film')==='b'?1:0,i=Math.min(15,Math.max(0,(Number.parseInt(query.get('shot'),10)||1)-1)),renderedFilm=null;
 const dialog=$('dialog');
 const cache=new Map(),queue=[];let active=0;
-function urlFor(film,page){return `assets/duo-${film}-${page}.webp`}
+function urlFor(film,page){return `assets/no-window-${film}-${page}.webp`}
 function pump(){
  while(active<2&&queue.length){
   const item=queue.shift();if(item.started)continue;item.started=true;active++;
